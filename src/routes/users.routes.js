@@ -1,0 +1,10 @@
+import {Router} from "express";
+import {ensureAuth} from "../middleware/auth.js";
+import * as c from "../controllers/users.controller.js";
+const r=Router();
+r.get("/users",ensureAuth,c.list);
+r.get("/users/:email",ensureAuth,c.getOne);
+r.post("/users",ensureAuth,c.create);
+r.put("/users/:email",ensureAuth,c.update);
+r.delete("/users/:email",ensureAuth,c.remove);
+export default r;

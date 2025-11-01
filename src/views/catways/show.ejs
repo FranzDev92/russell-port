@@ -1,0 +1,9 @@
+<%- include("../partials/head") %>
+<h2>Catway #<%= item.catwayNumber %></h2>
+<p>Type: <strong><%= item.catwayType %></strong></p>
+<p>État: <strong><%= item.catwayState %></strong></p>
+<p>
+  <a href="/catways/<%= item.catwayNumber %>/reservations">Voir réservations</a> |
+  <a href="/catways">← Liste</a>
+</p>
+<%- include("../partials/foot") %>

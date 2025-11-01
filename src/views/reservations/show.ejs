@@ -1,0 +1,7 @@
+<%- include("../partials/head") %>
+<h2>Détail réservation</h2>
+<p>Client: <strong><%= item.clientName %></strong></p>
+<p>Bateau: <strong><%= item.boatName %></strong></p>
+<p>Période: <%= new Date(item.startDate).toISOString().substring(0,10) %> → <%= new Date(item.endDate).toISOString().substring(0,10) %></p>
+<p><a href="/catways/<%= item.catwayNumber %>/reservations">← Retour liste</a></p>
+<%- include("../partials/foot") %>

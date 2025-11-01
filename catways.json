@@ -1,0 +1,27 @@
+[
+  {
+    "catwayNumber": 1,
+    "catwayType": "long",
+    "catwayState": "occupied"
+  },
+  {
+    "catwayNumber": 2,
+    "catwayType": "short",
+    "catwayState": "free"
+  },
+  {
+    "catwayNumber": 3,
+    "catwayType": "long",
+    "catwayState": "maintenance"
+  },
+  {
+    "catwayNumber": 4,
+    "catwayType": "short",
+    "catwayState": "free"
+  },
+  {
+    "catwayNumber": 5,
+    "catwayType": "long",
+    "catwayState": "occupied"
+  }
+]

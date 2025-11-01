@@ -1,0 +1,31 @@
+<%- include("../partials/head") %>
+<h2>Catways</h2>
+<p><a href="/dashboard">← Dashboard</a></p>
+<table border="1" cellpadding="6">
+  <thead><tr><th>#</th><th>Type</th><th>État</th><th>Actions</th></tr></thead>
+  <tbody>
+  <% items.forEach(i=>{ %>
+    <tr>
+      <td><a href="/catways/<%= i.catwayNumber %>"><%= i.catwayNumber %></a></td>
+      <td><%= i.catwayType %></td>
+      <td><%= i.catwayState %></td>
+      <td>
+        <select id="state-<%= i.catwayNumber %>">
+          <option <%= i.catwayState==='free'?'selected':'' %> value="free">free</option>
+          <option <%= i.catwayState==='occupied'?'selected':'' %> value="occupied">occupied</option>
+          <option <%= i.catwayState==='maintenance'?'selected':'' %> value="maintenance">maintenance</option>
+        </select>
+        <button onclick="upd(<%= i.catwayNumber %>)">Maj état</button>
+        <button onclick="delCat(<%= i.catwayNumber %>)">Supprimer</button>
+        <a href="/catways/<%= i.catwayNumber %>/reservations">Réservations</a>
+      </td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table>
+
+<h3>Créer un catway</h3>
+<form id="fCreate">
+  <input name="catwayNumber" type="number" placeholder="Numéro" required>
+  <select name="catwayType"><option value="long">long</option><option value="short">short</option></select>
+  <select

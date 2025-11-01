@@ -1,0 +1,10 @@
+import {Router} from "express";
+import {ensureAuth} from "../middleware/auth.js";
+import * as c from "../controllers/catways.controller.js";
+const r=Router();
+r.get("/catways",ensureAuth,c.list);
+r.get("/catways/:id",ensureAuth,c.getOne);
+r.post("/catways",ensureAuth,c.create);
+r.put("/catways/:id",ensureAuth,c.update);
+r.delete("/catways/:id",ensureAuth,c.remove);
+export default r;

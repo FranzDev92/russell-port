@@ -1,0 +1,30 @@
+[
+  {
+    "catwayNumber": 1,
+    "clientName": "Jean Dupont",
+    "boatName": "Le Dauphin Bleu",
+    "startDate": "2025-10-01T00:00:00.000Z",
+    "endDate": "2025-10-10T00:00:00.000Z"
+  },
+  {
+    "catwayNumber": 2,
+    "clientName": "Claire Martin",
+    "boatName": "Océane",
+    "startDate": "2025-09-20T00:00:00.000Z",
+    "endDate": "2025-09-27T00:00:00.000Z"
+  },
+  {
+    "catwayNumber": 3,
+    "clientName": "Lucas Bernard",
+    "boatName": "Sea Spirit",
+    "startDate": "2025-10-15T00:00:00.000Z",
+    "endDate": "2025-10-20T00:00:00.000Z"
+  },
+  {
+    "catwayNumber": 5,
+    "clientName": "Nina Caron",
+    "boatName": "Vent du Sud",
+    "startDate": "2025-11-01T00:00:00.000Z",
+    "endDate": "2025-11-07T00:00:00.000Z"
+  }
+]

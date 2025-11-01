@@ -1,0 +1,44 @@
+<%- include("../partials/head") %>
+<h2>Réservations du catway #<%= catway %></h2>
+<p><a href="/catways">← Retour catways</a></p>
+<table border="1" cellpadding="6">
+  <thead><tr><th>Client</th><th>Bateau</th><th>Début</th><th>Fin</th><th>Actions</th></tr></thead>
+  <tbody>
+  <% items.forEach(r=>{ %>
+    <tr>
+      <td><%= r.clientName %></td>
+      <td><%= r.boatName %></td>
+      <td><%= new Date(r.startDate).toISOString().substring(0,10) %></td>
+      <td><%= new Date(r.endDate).toISOString().substring(0,10) %></td>
+      <td>
+        <a href="/catways/<%= r.catwayNumber %>/reservations/<%= r._id %>">Détail</a>
+        <button onclick="delRes('<%= r._id %>')">Supprimer</button>
+      </td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table>
+
+<h3>Nouvelle réservation</h3>
+<form id="fRes">
+  <input name="clientName" placeholder="Client" required>
+  <input name="boatName" placeholder="Bateau" required>
+  <input name="startDate" type="date" required>
+  <input name="endDate" type="date" required>
+  <button>Créer</button>
+</form>
+
+<script>
+async function delRes(id){
+  if(!confirm("Supprimer cette réservation ?"))return;
+  await fetch("/catways/<%= catway %>/reservations/"+id,{method:"DELETE"});
+  location.reload();
+}
+document.getElementById("fRes").addEventListener("submit",async(e)=>{
+  e.preventDefault();
+  const body=Object.fromEntries(new FormData(e.target).entries());
+  await fetch("/catways/<%= catway %>/reservations",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  location.reload();
+});
+</script>
+<%- include("../partials/foot") %>

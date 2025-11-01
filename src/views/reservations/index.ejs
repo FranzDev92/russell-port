@@ -1,0 +1,10 @@
+<%- include("../partials/head") %>
+<h2>Réservations</h2>
+<p>Sélectionnez un catway pour gérer ses réservations :</p>
+<ul>
+  <% items.forEach(i=>{ %>
+    <li>Catway #<%= i.catwayNumber %> — <a href="/catways/<%= i.catwayNumber %>/reservations">Ouvrir</a></li>
+  <% }) %>
+</ul>
+<p><a href="/dashboard">← Dashboard</a></p>
+<%- include("../partials/foot") %>

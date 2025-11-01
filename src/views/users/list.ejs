@@ -1,0 +1,38 @@
+<%- include("../partials/head") %>
+<h2>Utilisateurs</h2>
+<p><a href="/dashboard">← Dashboard</a></p>
+<table border="1" cellpadding="6">
+  <thead><tr><th>Username</th><th>Email</th><th>Actions</th></tr></thead>
+  <tbody>
+  <% users.forEach(u=>{ %>
+    <tr>
+      <td><%= u.username %></td>
+      <td><a href="/users/<%= u.email %>"><%= u.email %></a></td>
+      <td><button onclick="delUser('<%= u.email %>')">Supprimer</button></td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table>
+
+<h3>Créer un utilisateur</h3>
+<form id="fUser">
+  <input name="username" placeholder="Username" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="password" type="password" placeholder="Password" required>
+  <button>Créer</button>
+</form>
+
+<script>
+async function delUser(email){
+  if(!confirm("Supprimer "+email+" ?"))return;
+  await fetch("/users/"+encodeURIComponent(email),{method:"DELETE"});
+  location.reload();
+}
+document.getElementById("fUser").addEventListener("submit",async(e)=>{
+  e.preventDefault();
+  const body=Object.fromEntries(new FormData(e.target).entries());
+  await fetch("/users",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  location.reload();
+});
+</script>
+<%- include("../partials/foot") %>
