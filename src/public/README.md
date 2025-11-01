@@ -9,8 +9,8 @@ Commentaires de code : **JSDoc**.
 
 ## Livrables attendus (conformément au brief)
 
-- Lien GitHub : <à compléter>
-- Lien de l’application hébergée : <à compléter>
+- Lien GitHub : [https://github.com/FranzDev92/russell-port](https://github.com/FranzDev92/russell-port)
+- Lien de l’application hébergée : <à compléter si déployée>
 - Identifiants du compte de démonstration :
   - Email : `demo@russell.local`
   - Mot de passe : `Demo!123`
@@ -26,6 +26,6 @@ Commentaires de code : **JSDoc**.
 ### 2️⃣ Installation
 
 ```bash
-git clone <URL_DU_REPO>
+git clone https://github.com/FranzDev92/russell-port.git
 cd russell-port
 npm install
